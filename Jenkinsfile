@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build-service') {
       steps {
-        build job: 'Dev.eng-idm.service-service', parameters: [string(name: 'branch_name', value: 'testforjenkins1')]
-        build job:'Dev.eng-idm.service-service', parameters: [string(name: 'branch_name', value: 'testforjenkins')]
+        build job: 'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: 'testforjenkins1')]
+        build job:'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: 'testforjenkins')]
       }
     }
   }
