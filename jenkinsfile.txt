@@ -1,0 +1,36 @@
+pipeline {
+    // The following configures the GitLab connection and triggers the job on a push to GitLab.
+    agent any
+   
+    stages {
+           
+
+        // Now build the application.
+        stage( "Build application" ) { 
+            agent {
+                node {
+                    label 'jdk8-maven3'
+                }
+            }
+            steps {
+                def map = ["Dev.eng-idm.service-service":"testforjenkins","Dev.eng-idm.user-service":"testforjenkins",]
+map.each{ k, v -> println "${k}:${v}" }
+
+map.each{ key, value ->
+    println "${key}:${value}"
+    String s = "${key}"
+    String v = "${value}"
+    println s
+    println v
+    steps{
+   //build job: 'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: 'testforjenkins')]
+   build job: key, parameters: [string(name:'branch_name', value: value)]
+}
+            }
+          
+            }
+        }   
+
+      
+    }
+}
