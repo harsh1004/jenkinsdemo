@@ -1,7 +1,6 @@
 pipeline {
   agent any
-  stages {
-    stage('user-input') {
+  
     def userInput = input(
    id: 'userInput', message: 'Let\'s promote?', parameters: [
    [$class: 'TextParameterDefinition', defaultValue: 'service', description: 'services to be built', name: 'service_name'],
@@ -10,11 +9,12 @@ pipeline {
 echo ("service_name: "+userInput['service_name'])
 echo ("branch: "+userInput['branch'])
 
-    }
-    stage('build-service') {
+
+ stages {
+   stage('build-service') {
       steps {
-        build job: 'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: 'testforjenkins1')]
-        build job:'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: 'testforjenkins')]
+        build job: 'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: userInput['branch'])]
+        build job:'Dev.eng-idm.user-service', parameters: [string(name: 'branch_name', value: userInput['branch'])]
       }
     }
   }
