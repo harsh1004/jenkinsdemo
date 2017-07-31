@@ -1,7 +1,4 @@
-pipeline {
-  agent any
-  
-    def userInput = input(
+ def userInput = input(
    id: 'userInput', message: 'Let\'s promote?', parameters: [
    [$class: 'TextParameterDefinition', defaultValue: 'service', description: 'services to be built', name: 'service_name'],
    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'branch to be built', name: 'branch']
@@ -9,6 +6,11 @@ pipeline {
 echo ("service_name: "+userInput['service_name'])
 echo ("branch: "+userInput['branch'])
 
+
+pipeline {
+  agent any
+  
+   
 
  stages {
    stage('build-service') {
