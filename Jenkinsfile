@@ -4,7 +4,7 @@
    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'branch to be built', name: 'branch']
 ])
 echo ("service_name: "+userInput['service_name'])
-echo(userInput['service_name'].keySet())
+echo('service_name'.keySet())
 echo ("branch: "+userInput['branch'])
 
 
