@@ -6,7 +6,9 @@ def userInput = input(
    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'branch to be built', name: 'branch']
 ])
 echo ("service_name: "+userInput['service_name'])
-echo(userInput['service_name'].values())
+//@NonCPS def entries(service_name) {service_name.collect {k, v -> [k, v]}}
+
+//echo(userInput['service_name'].values())
 echo ("branch: "+userInput['branch'])
 
 
