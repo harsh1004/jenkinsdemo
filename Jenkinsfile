@@ -6,7 +6,7 @@ def userInput = input(
    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'branch to be built', name: 'branch']
 ])
 echo ("service_name: "+userInput['service_name'])
-echo('service_name'.values())
+echo(userInput['service_name'].values())
 echo ("branch: "+userInput['branch'])
 
 
