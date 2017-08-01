@@ -4,9 +4,9 @@
    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'branch to be built', name: 'branch']
 ])
 echo ("service_name: "+userInput['service_name'])
-println(userInput['service_name'].containsKey("user-service"))
+echo(userInput['service_name'].containsKey("user-service"))
 echo ("branch: "+userInput['branch'])
-)
+
 
 
 pipeline {
