@@ -1,5 +1,9 @@
 #!/usr/bin/env groovy 
-@Grab('org.apache.httpcomponents:httpclient:4.2.6')
+
+@Grapes([
+    @Grab('org.apache.httpcomponents:httpclient:4.2.6'),
+    @GrabConfig(systemClassLoader=true)
+])
 
 def userInput = input(
    id: 'userInput', message: 'Let\'s promote?', parameters: [
