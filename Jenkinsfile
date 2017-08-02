@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy 
-
+@Grab('commons-net:commons-net:3.3')
+import org.apache.commons.net.ftp.*
 def userInput = input(
    id: 'userInput', message: 'Let\'s promote?', parameters: [
    [$class: 'TextParameterDefinition', defaultValue: 'service', description: 'services to be built', name: 'service_name'],
